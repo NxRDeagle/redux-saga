@@ -8,7 +8,7 @@ function App() {
   return (
     <div>
       <p>SAGA TEST</p>
-      <button onClick={() => dispatch({ type: "CLICK" })}>CLICK</button>
+      <button onClick={() => dispatch({ type: "LOAD_DATA" })}>CLICK</button>
     </div>
   );
 }
