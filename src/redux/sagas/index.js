@@ -3,7 +3,7 @@ import { getPeople } from "../../api";
 
 export function* workerSaga() {
   const data = yield getPeople();
-  put({ type: "ADD_PEOPLE", payload: data });
+  yield put({ type: "ADD_PEOPLE", payload: data });
 }
 
 export function* watchClickSaga() {
