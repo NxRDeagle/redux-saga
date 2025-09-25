@@ -1,21 +1,31 @@
-const initialState = {
-  people: [],
-  planets: [],
+import { combineReducers } from "redux";
+import { createReduxHistoryContext } from "redux-first-history";
+import { createBrowserHistory } from "history";
+
+export const { createReduxHistory, routerMiddleware, routerReducer } =
+  createReduxHistoryContext({
+    history: createBrowserHistory(),
+  });
+
+const initialAppState = {
+  vehicles: [],
 };
 
-export const reducer = (state = initialState, { type, payload }) => {
+export const appReducer = (state = initialAppState, { type, payload }) => {
   switch (type) {
-    case "ADD_PEOPLE":
+    case "SET_VEHICLES":
       return {
         ...state,
-        people: [...state.people, ...payload],
-      };
-    case "ADD_PLANETS":
-      return {
-        ...state,
-        planets: [...state.planets, ...payload],
+        vehicles: payload,
       };
     default:
       return state;
   }
 };
+
+const rootReducer = combineReducers({
+  app: appReducer,
+  router: routerReducer,
+});
+
+export default rootReducer;
