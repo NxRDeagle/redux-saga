@@ -1,8 +1,11 @@
 import { API_URL } from "./constants";
 
-export const swapiGet = async (pattern, signal = null) => {
+export const swapiGet = async (pattern, withResults = false, signal = null) => {
   const data = await fetch(`${API_URL}${pattern}`, { signal }).then((result) =>
     result.json()
   );
-  return data?.results ?? [];
+  if (withResults) {
+    return data?.results ?? [];
+  }
+  return data;
 };

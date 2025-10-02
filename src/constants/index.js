@@ -1,0 +1,5 @@
+export const PAGE_LIMIT = 10;
+
+export const MAIN_ROUTE = "MAIN_ROUTE";
+export const PEOPLE_DETAILS_ROUTE = "PEOPLE_DETAILS_ROUTE";
+export const NOT_FOUND_ROUTE = "NOT_FOUND_ROUTE";
